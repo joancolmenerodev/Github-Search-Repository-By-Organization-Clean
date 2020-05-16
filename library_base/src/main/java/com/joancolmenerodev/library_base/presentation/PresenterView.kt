@@ -1,0 +1,3 @@
+package com.joancolmenerodev.library_base.presentation
+
+interface PresenterView
