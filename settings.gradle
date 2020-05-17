@@ -1,3 +1,5 @@
 rootProject.name='Github-organization-searcher'
 include ':app'
 include ':library_base'
+include ':organization_searcher'
+include ':networking'

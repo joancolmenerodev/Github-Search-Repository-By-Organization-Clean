@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -6,15 +6,20 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion AndroidConfig.COMPILE_SDK_VERSION
     buildToolsVersion AndroidConfig.BUILD_TOOLS_VERSION
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
     defaultConfig {
-        applicationId AndroidConfig.APPLICATION_ID
         minSdkVersion AndroidConfig.MIN_SDK_VERSION
         targetSdkVersion AndroidConfig.TARGET_SDK_VERSION
         versionCode AndroidConfig.VERSION_CODE
         versionName AndroidConfig.VERSION_NAME
     }
-
     buildTypes {
         release {
             minifyEnabled true
@@ -28,40 +33,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
 
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api(AndroidDependencies.SUPPORT_CONSTRAINT_LAYOUT)
-    api(AndroidDependencies.COORDINATOR_LAYOUT)
-    api(AndroidDependencies.RECYCLERVIEW)
-    api(AndroidDependencies.MATERIAL)
 
     implementation(LibrariesDependencies.RETROFIT_LOGGING_INTERCEPTOR)
+    implementation(LibrariesDependencies.RETROFIT_GSON_CONVERTER)
+
     api(LibrariesDependencies.RETROFIT)
     api(LibrariesDependencies.DAGGER)
     api(LibrariesDependencies.DAGGER_ANDROID)
     api(LibrariesDependencies.DAGGER_ANDROID_SUPPORT)
     kapt LibrariesDependencies.DAGGER_ANDROID_KAPT
     kapt LibrariesDependencies.DAGGER_KAPT
-    kapt LibrariesDependencies.DAGGER_ANNOTATION_PROCESSOR
-    kaptAndroidTest LibrariesDependencies.DAGGER_ANDROID
 
-    androidTestImplementation TestLibraryDependencies.espressoCore
-    androidTestImplementation TestLibraryDependencies.espressoContrib
-    androidTestImplementation TestLibraryDependencies.espressoIntents
-    androidTestImplementation TestLibraryDependencies.okhttp3IdlingResources
-
-    implementation project(ModuleDependencies.LIBRARY_BASE)
     implementation project(ModuleDependencies.ORGANIZATION_SEARCHER)
+    implementation project(ModuleDependencies.LIBRARY_BASE)
+
+
 }
