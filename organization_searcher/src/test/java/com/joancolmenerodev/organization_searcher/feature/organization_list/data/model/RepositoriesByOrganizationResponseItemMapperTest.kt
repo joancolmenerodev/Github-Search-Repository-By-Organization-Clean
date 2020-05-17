@@ -48,7 +48,7 @@ class RepositoriesByOrganizationResponseItemMapperTest {
         val repoItems = listOf(
             RepositoriesByOrganizationResponseItem(
                 description = "Description of repo 1",
-                fork = true,
+                fork = 10,
                 htmlUrl = "https://wwww.repo1.com",
                 id = 1,
                 name = "Repository 1",
@@ -61,7 +61,7 @@ class RepositoriesByOrganizationResponseItemMapperTest {
             ),
             RepositoriesByOrganizationResponseItem(
                 description = "Description of repo 2",
-                fork = false,
+                fork = 0,
                 htmlUrl = "https://wwww.repo2.com",
                 id = 2,
                 name = "Repository 2",

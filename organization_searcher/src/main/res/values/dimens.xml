@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="repo_name_size">24sp</dimen>
+    <dimen name="icon_search_width">40dp</dimen>
+    <dimen name="default_constraint_layout_size">0dp</dimen>
+    <dimen name="default_padding">8dp</dimen>
+
+
     <dimen name="card_view_corner_radius_list">4dp</dimen>
     <dimen name="card_view_elevation_list">4dp</dimen>
 
@@ -11,4 +17,5 @@
     <dimen name="description_text_size">15sp</dimen>
 
     <dimen name="padding_linear_layout_repository_info">8dp</dimen>
+
 </resources>

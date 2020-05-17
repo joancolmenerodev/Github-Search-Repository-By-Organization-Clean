@@ -8,8 +8,8 @@ data class RepositoriesByOrganizationResponseItem(
 
     @SerializedName("description")
     val description: String,
-    @SerializedName("fork")
-    val fork: Boolean,
+    @SerializedName("forks")
+    val fork: Int,
     @SerializedName("html_url")
     val htmlUrl: String,
     @SerializedName("id")
@@ -26,7 +26,7 @@ fun RepositoriesByOrganizationResponseItem.map(): RepositoriesByOrganization {
         name = this.name,
         description = this.description,
         url = this.htmlUrl,
-        forked = this.fork,
+        forked = this.fork > 0,
         owner_name = this.ownerDTO.login,
         owner_avatar = this.ownerDTO.avatarUrl,
         owner_url = this.ownerDTO.htmlUrl

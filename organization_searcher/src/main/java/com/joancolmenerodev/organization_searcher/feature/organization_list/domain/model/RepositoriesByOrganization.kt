@@ -5,7 +5,7 @@ data class RepositoriesByOrganization(
     val name: String?,
     val description: String?,
     val url: String?,
-    val forked: Boolean?,
+    val forked: Boolean,
     val owner_name: String?,
     val owner_avatar: String?,
     val owner_url: String

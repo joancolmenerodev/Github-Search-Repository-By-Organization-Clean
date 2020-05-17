@@ -63,5 +63,6 @@ dependencies {
     androidTestImplementation TestLibraryDependencies.okhttp3IdlingResources
 
     implementation project(ModuleDependencies.LIBRARY_BASE)
+    implementation project(ModuleDependencies.NETWORKING)
     implementation project(ModuleDependencies.ORGANIZATION_SEARCHER)
 }
