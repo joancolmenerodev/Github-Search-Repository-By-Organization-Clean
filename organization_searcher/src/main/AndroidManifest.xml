@@ -1,2 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.joancolmenerodev.organization_searcher" />
+    package="com.joancolmenerodev.organization_searcher">
+
+    <application>
+        <activity android:name=".feature.organization_list.presentation.RepositoryByOrganizationSearcherActivity"></activity>
+    </application>
+
+</manifest>
