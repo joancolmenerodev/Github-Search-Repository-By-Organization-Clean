@@ -18,6 +18,7 @@ android {
         targetSdkVersion AndroidConfig.TARGET_SDK_VERSION
         versionCode AndroidConfig.VERSION_CODE
         versionName AndroidConfig.VERSION_NAME
+        testInstrumentationRunner AndroidConfig.TEST_INSTRUMENTATION_RUNNER
 
     }
     buildTypes {
@@ -50,6 +51,8 @@ dependencies {
     implementation AndroidDependencies.SUPPORT_CONSTRAINT_LAYOUT
     implementation AndroidDependencies.MATERIAL
     implementation TestLibraryDependencies.mockWebServer
+
+    androidTestImplementation TestLibraryDependencies.testRunner
 
     implementation project(ModuleDependencies.LIBRARY_BASE)
 }

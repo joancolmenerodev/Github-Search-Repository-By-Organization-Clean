@@ -1,5 +1,7 @@
 package com.joancolmenerodev.organization_searcher.feature.organization_list.domain.model
 
+import com.joancolmenerodev.organization_searcher.feature.organization_list.presentation.mvp.RepositoryByOrganizationContract
+
 data class RepositoriesByOrganization(
     val id: Int,
     val name: String?,

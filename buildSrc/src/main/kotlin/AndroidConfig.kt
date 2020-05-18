@@ -8,4 +8,5 @@ object AndroidConfig {
     const val VERSION_NAME = "1.0"
 
     const val APPLICATION_ID = "com.joancolmenerodev.githuborganizationsearcher"
+    const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 }

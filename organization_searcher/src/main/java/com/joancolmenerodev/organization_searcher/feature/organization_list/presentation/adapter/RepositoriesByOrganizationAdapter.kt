@@ -1,16 +1,15 @@
 package com.joancolmenerodev.organization_searcher.feature.organization_list.presentation.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.joancolmenerodev.organization_searcher.R
 import com.joancolmenerodev.organization_searcher.feature.organization_list.domain.model.RepositoriesByOrganization
+import com.joancolmenerodev.organization_searcher.feature.organization_list.presentation.getColorByForked
 
 class RepositoriesByOrganizationAdapter(private val onItemClick: (repository: RepositoriesByOrganization) -> Unit) :
     RecyclerView.Adapter<RepositoriesByOrganizationAdapter.RepositoriesByOrganizationHolder>() {
@@ -54,21 +53,12 @@ class RepositoriesByOrganizationAdapter(private val onItemClick: (repository: Re
             repositoryName.text = repository.name
             repositoryDescription.text = repository.description
             ownerName.text = repository.owner_name
-            if (repository.forked) {
-                cardview.setBackgroundColor(
-                    ContextCompat.getColor(
-                        itemView.context,
-                        android.R.color.holo_green_light
-                    )
+            cardview.setBackgroundColor(
+                ContextCompat.getColor(
+                    itemView.context,
+                    getColorByForked(repository.forked)
                 )
-            } else {
-                cardview.setBackgroundColor(
-                    ContextCompat.getColor(
-                        itemView.context,
-                        android.R.color.white
-                    )
-                )
-            }
+            )
             itemView.setOnLongClickListener { onItemClick.invoke(repository); false }
 
         }
