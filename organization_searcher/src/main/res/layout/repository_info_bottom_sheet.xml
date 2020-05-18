@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_padding">
+
+    <TextView
+        android:id="@+id/tv_bottom_sheet_repo_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/bottom_sheet_repository_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Github-organization-searcher" />
+
+    <ImageView
+        android:id="@+id/iv_bottom_sheet_owner_avatar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="@dimen/default_margin_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bottom_sheet_repo_name"
+        tools:src="@android:drawable/stat_sys_warning" />
+
+    <TextView
+        android:id="@+id/tv_bottom_sheet_owner_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin_top"
+        android:textSize="@dimen/bottom_sheet_owner_login_text_size"
+        app:layout_constraintEnd_toEndOf="@+id/iv_bottom_sheet_owner_avatar"
+        app:layout_constraintStart_toStartOf="@+id/iv_bottom_sheet_owner_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/iv_bottom_sheet_owner_avatar"
+        tools:text="joancolmenerodev" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin_top"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="@+id/iv_bottom_sheet_owner_avatar"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="@+id/iv_bottom_sheet_owner_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bottom_sheet_owner_login">
+
+        <TextView
+            android:id="@+id/tv_bottom_sheet_owner_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_person_black_24dp"
+            android:gravity="center"
+            android:text="@string/github_profile_bottom_sheet" />
+
+        <TextView
+            android:id="@+id/tv_bottom_sheet_website_repository"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_code_black_24dp"
+            android:gravity="center"
+            android:text="@string/repository_bottom_sheet_text" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,6 @@
 package com.joancolmenerodev.organization_searcher.feature.organization_list.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -42,6 +41,8 @@ class RepositoryByOrganizationSearcherActivity : AppCompatActivity(),
     private fun setupRecyclerView() {
         val gridLayoutManager = LinearLayoutManager(this)
         adapter = RepositoriesByOrganizationAdapter {
+            val fragment = RepositoryInfoBottomSheetFragment.getInstance(it)
+            fragment.show(supportFragmentManager, fragment.tag);
         }
         list.layoutManager = gridLayoutManager
         list.adapter = adapter
