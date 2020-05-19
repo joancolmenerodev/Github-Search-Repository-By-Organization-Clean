@@ -19,6 +19,7 @@ android {
         targetSdkVersion AndroidConfig.TARGET_SDK_VERSION
         versionCode AndroidConfig.VERSION_CODE
         versionName AndroidConfig.VERSION_NAME
+        testInstrumentationRunner AndroidConfig.TEST_INSTRUMENTATION_RUNNER
     }
     buildTypes {
         release {
@@ -49,5 +50,7 @@ dependencies {
 
     implementation project(ModuleDependencies.LIBRARY_BASE)
 
-
+    androidTestImplementation TestLibraryDependencies.roomTesting
+    androidTestImplementation TestLibraryDependencies.jUnitExt
+    androidTestImplementation TestLibraryDependencies.kotlinTest
 }

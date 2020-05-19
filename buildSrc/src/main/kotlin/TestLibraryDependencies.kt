@@ -1,6 +1,8 @@
 object TestLibraryDependencies {
     const val jUnit = "junit:junit:${TestLibraryVersion.jUnitVersion}"
-    const val jUnitExt = "junit:junit:${TestLibraryVersion.jUnitExtVersion}"
+    const val jUnitExt = "androidx.test.ext:junit:${TestLibraryVersion.jUnitExtVersion}"
+    const val kotlinTest =
+        "org.jetbrains.kotlin:kotlin-test-junit:${TestLibraryVersion.kotlinVersion}"
     const val mockK = "io.mockk:mockk:${TestLibraryVersion.mockKVersion}"
     const val testRunner = "androidx.test:runner:${TestLibraryVersion.testRunnerVersion}"
     const val okhttp3IdlingResources =
@@ -17,6 +19,7 @@ object TestLibraryDependencies {
         "androidx.test.espresso:espresso-contrib:${TestLibraryVersion.espressoCoreVersion}"
     const val espressoIntents =
         "androidx.test.espresso:espresso-intents:${TestLibraryVersion.espressoCoreVersion}"
+    const val roomTesting = "androidx.room:room-testing:${TestLibraryVersion.roomVersion}"
 }
 
 private object TestLibraryVersion {
@@ -29,4 +32,6 @@ private object TestLibraryVersion {
     const val mockKVersion = "1.9"
     const val kotlinXCoroutinesTestVersion = "1.3.5"
     const val espressoCoreVersion = "3.2.0"
+    const val roomVersion = "2.2.5"
+    const val kotlinVersion = "1.3.72"
 }

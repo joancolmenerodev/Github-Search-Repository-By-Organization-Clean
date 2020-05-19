@@ -1,6 +1,5 @@
 package com.joancolmenerodev.organization_searcher.feature.organization_list.data.repository
 
-import android.util.Log
 import com.joancolmenerodev.library_base.exceptions.ClientException
 import com.joancolmenerodev.library_base.repository.BaseRepository
 import com.joancolmenerodev.organization_searcher.feature.organization_list.data.mapper.map
