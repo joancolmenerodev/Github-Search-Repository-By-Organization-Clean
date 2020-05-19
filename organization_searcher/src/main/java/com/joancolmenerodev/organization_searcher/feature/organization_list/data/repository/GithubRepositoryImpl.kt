@@ -10,6 +10,7 @@ import com.joancolmenerodev.organization_searcher.feature.organization_list.doma
 import com.joancolmenerodev.persistence.dao.OrganizationDao
 import com.joancolmenerodev.persistence.dao.RepositoriesDao
 import com.joancolmenerodev.persistence.entities.Organization
+import com.joancolmenerodev.persistence.entities.Repository
 import javax.inject.Inject
 
 class GithubRepositoryImpl @Inject constructor(
@@ -25,7 +26,7 @@ class GithubRepositoryImpl @Inject constructor(
             val organizationLowerCase = organization.toLowerCase()
             try {
                 fetchLocalData(organizationLowerCase)
-            } catch (e: NotDataFound) {
+            } catch (e: NoLocalDataFound) {
                 fetchRemoteData(organizationLowerCase)
             }
         }
@@ -38,7 +39,7 @@ class GithubRepositoryImpl @Inject constructor(
         return if (findRepositoryByOrganization.isNotEmpty()) {
             findRepositoryByOrganization.map { it.map() }
         } else {
-            throw NotDataFound()
+            throw NoLocalDataFound()
         }
     }
 
@@ -47,10 +48,10 @@ class GithubRepositoryImpl @Inject constructor(
         try {
             val result = service.getRepositoriesByOrganization(organization)
             if (result.isNotEmpty()) {
-                organizationDao.insert(Organization(organization))
+                insertOrganization(organization)
             }
             val remoteData = result.map { it.map() }
-            remoteData.forEach { repositoriesDao.insert(it.map(organization)) }
+            remoteData.forEach { insertRepositories(it.map(organization)) }
             return remoteData
         } catch (exception: Exception) {
             when (exception) {
@@ -59,6 +60,13 @@ class GithubRepositoryImpl @Inject constructor(
             }
         }
     }
+
+    private suspend fun insertOrganization(organizationName: String) = organizationDao.insert(
+        Organization(organizationName)
+    )
+
+    private suspend fun insertRepositories(repository: Repository) =
+        repositoriesDao.insert(repository)
 }
 
-class NotDataFound : Exception()
+class NoLocalDataFound : Exception()

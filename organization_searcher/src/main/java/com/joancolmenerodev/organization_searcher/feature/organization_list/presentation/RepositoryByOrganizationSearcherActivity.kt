@@ -2,7 +2,7 @@ package com.joancolmenerodev.organization_searcher.feature.organization_list.pre
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joancolmenerodev.organization_searcher.R
@@ -20,6 +20,13 @@ class RepositoryByOrganizationSearcherActivity : AppCompatActivity(),
 
     @Inject
     lateinit var presenter: RepositoryByOrganizationContract.Presenter
+
+    private val layoutIds = arrayListOf(
+        R.id.list,
+        R.id.image_empty_list,
+        R.id.image_no_internet,
+        R.id.tv_no_internet_connection
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,15 +48,14 @@ class RepositoryByOrganizationSearcherActivity : AppCompatActivity(),
     private fun setupRecyclerView() {
         adapter = RepositoriesByOrganizationAdapter {
             val fragment = RepositoryInfoBottomSheetFragment.getInstance(it)
-            fragment.show(supportFragmentManager, fragment.tag);
+            fragment.show(supportFragmentManager, fragment.tag)
         }
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = adapter
     }
 
     override fun showResults(repositories: List<RepositoriesByOrganization>) {
-        list.visibility = View.VISIBLE
-        tv_emtpyList.visibility = View.GONE
+        showCorrectLayout(list)
         adapter.addItems(repositories)
     }
 
@@ -62,11 +68,33 @@ class RepositoryByOrganizationSearcherActivity : AppCompatActivity(),
     }
 
     override fun serviceUnavailable() {
-        Toast.makeText(this, getString(R.string.service_unavailable), Toast.LENGTH_SHORT).show()
+        showCorrectLayout(image_no_internet, tv_no_internet_connection)
     }
 
     override fun listNotFound() {
-        tv_emtpyList.visibility = View.VISIBLE
-        list.visibility = View.GONE
+        showCorrectLayout(image_empty_list)
+    }
+
+    private fun showCorrectLayout(vararg viewToChange: View) {
+        for (layoutId in layoutIds) {
+            for (view in viewToChange) {
+                if (view.id == layoutId) {
+                    view.visibility = View.VISIBLE
+                    break
+                } else {
+                    findViewById<View>(layoutId).visibility = View.GONE
+                }
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.onViewReady(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onViewDestroyed()
     }
 }

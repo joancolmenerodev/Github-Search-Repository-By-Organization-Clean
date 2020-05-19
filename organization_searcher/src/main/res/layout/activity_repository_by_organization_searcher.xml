@@ -67,17 +67,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_emtpyList"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/image_empty_list"
         android:layout_width="@dimen/default_constraint_layout_size"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/no_results"
-        android:textSize="@dimen/repo_name_size"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="organization_not_found.json"
+        app:lottie_loop="true" />
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/image_no_internet"
+        android:layout_width="@dimen/default_constraint_layout_size"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/no_results"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="no_internet.json"
+        app:lottie_loop="true" />
+
+    <TextView
+        android:id="@+id/tv_no_internet_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textSize="@dimen/no_internet_connection_text_size"
+        android:layout_marginTop="@dimen/default_margin_top"
+        android:gravity="center_horizontal"
+        android:text="@string/service_unavailable"
+        app:layout_constraintEnd_toEndOf="@+id/image_no_internet"
+        app:layout_constraintStart_toStartOf="@+id/image_no_internet"
+        app:layout_constraintTop_toBottomOf="@+id/image_no_internet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
