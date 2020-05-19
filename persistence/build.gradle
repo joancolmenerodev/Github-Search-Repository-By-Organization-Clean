@@ -39,24 +39,15 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api(AndroidDependencies.SUPPORT_CONSTRAINT_LAYOUT)
-    api(AndroidDependencies.COORDINATOR_LAYOUT)
-    api(AndroidDependencies.RECYCLERVIEW)
-    api(AndroidDependencies.MATERIAL)
-    api(AndroidDependencies.DESIGN)
+    api(LibrariesDependencies.DAGGER)
+    api(LibrariesDependencies.DAGGER_ANDROID)
+    api(LibrariesDependencies.DAGGER_ANDROID_SUPPORT)
 
-    api LibrariesDependencies.RETROFIT
-    api LibrariesDependencies.RETROFIT_GSON_CONVERTER
-    api LibrariesDependencies.RETROFIT_LOGGING_INTERCEPTOR
-    api LibrariesDependencies.GSON
-    api LibrariesDependencies.COROUTINES
-    api LibrariesDependencies.DAGGER
-    api LibrariesDependencies.DAGGER_ANDROID
-    api LibrariesDependencies.GLIDE
-    api LibrariesDependencies.ROOM_KTX
-    api LibrariesDependencies.ROOM_RUNTIME
+    kapt LibrariesDependencies.DAGGER_ANDROID_KAPT
+    kapt LibrariesDependencies.DAGGER_KAPT
+    kapt LibrariesDependencies.ROOM_COMPILER
 
-    api TestLibraryDependencies.kotlinxCoroutinestest
-    api TestLibraryDependencies.jUnit
-    api TestLibraryDependencies.mockK
+    implementation project(ModuleDependencies.LIBRARY_BASE)
+
+
 }

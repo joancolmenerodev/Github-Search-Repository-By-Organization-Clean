@@ -3,6 +3,7 @@ package com.joancolmenerodev.library_base.exceptions
 import java.io.IOException
 
 open class ServiceException(override val cause: Exception? = null) : IOException(cause)
+open class NoInternetConnection(override val cause: Throwable?) : IOException(cause)
 
 sealed class ServerException : ServiceException() {
     object ServiceUnavailable : ServerException()

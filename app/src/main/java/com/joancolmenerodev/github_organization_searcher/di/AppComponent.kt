@@ -2,8 +2,10 @@ package com.joancolmenerodev.github_organization_searcher.di
 
 import com.joancolmenerodev.github_organization_searcher.App
 import com.joancolmenerodev.github_organization_searcher.di.modules.AppFeaturesModule
+import com.joancolmenerodev.github_organization_searcher.di.modules.AppModule
 import com.joancolmenerodev.github_organization_searcher.di.modules.CoroutineDispatcherProviderModule
 import com.joancolmenerodev.networking.di.NetworkingModule
+import com.joancolmenerodev.persistence.di.PersistenceModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -14,7 +16,9 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
+        AppModule::class,
         NetworkingModule::class,
+        PersistenceModule::class,
         AppFeaturesModule::class,
         CoroutineDispatcherProviderModule::class
     ]

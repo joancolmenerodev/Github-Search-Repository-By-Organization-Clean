@@ -53,7 +53,7 @@ class RepositoriesByOrganizationAdapter(private val onItemClick: (repository: Re
             repositoryName.text = repository.name
             repositoryDescription.text = repository.description
             ownerName.text = repository.owner_name
-            cardview.setBackgroundColor(
+            cardview.setCardBackgroundColor(
                 ContextCompat.getColor(
                     itemView.context,
                     getColorByForked(repository.forked)

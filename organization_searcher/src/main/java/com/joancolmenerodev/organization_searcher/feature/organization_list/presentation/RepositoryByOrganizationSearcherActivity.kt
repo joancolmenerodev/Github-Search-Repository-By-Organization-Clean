@@ -39,16 +39,16 @@ class RepositoryByOrganizationSearcherActivity : AppCompatActivity(),
     }
 
     private fun setupRecyclerView() {
-        val gridLayoutManager = LinearLayoutManager(this)
         adapter = RepositoriesByOrganizationAdapter {
             val fragment = RepositoryInfoBottomSheetFragment.getInstance(it)
             fragment.show(supportFragmentManager, fragment.tag);
         }
-        list.layoutManager = gridLayoutManager
+        list.layoutManager = LinearLayoutManager(this)
         list.adapter = adapter
     }
 
     override fun showResults(repositories: List<RepositoriesByOrganization>) {
+        list.visibility = View.VISIBLE
         tv_emtpyList.visibility = View.GONE
         adapter.addItems(repositories)
     }
@@ -62,10 +62,11 @@ class RepositoryByOrganizationSearcherActivity : AppCompatActivity(),
     }
 
     override fun serviceUnavailable() {
-        Toast.makeText(this, "Service unavailable", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.service_unavailable), Toast.LENGTH_SHORT).show()
     }
 
     override fun listNotFound() {
         tv_emtpyList.visibility = View.VISIBLE
+        list.visibility = View.GONE
     }
 }

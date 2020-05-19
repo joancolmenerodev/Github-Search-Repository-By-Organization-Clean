@@ -10,12 +10,9 @@ abstract class BaseRepository {
         try {
             block()
         } catch (error: ServiceException) {
-            if (error is ServerException.ServiceUnavailable) {
-                throw SomethingWentWrongException(
-                    error
-                )
-            } else {
-                throw error
+            when (error) {
+                is ServerException.ServiceUnavailable -> throw SomethingWentWrongException(error)
+                else -> throw error
             }
         }
 }

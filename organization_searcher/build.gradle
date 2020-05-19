@@ -55,4 +55,5 @@ dependencies {
     androidTestImplementation TestLibraryDependencies.testRunner
 
     implementation project(ModuleDependencies.LIBRARY_BASE)
+    implementation project(ModuleDependencies.PERSISTENCE)
 }

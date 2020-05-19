@@ -4,5 +4,6 @@
     <string name="no_results">No results 😓</string>
     <string name="github_profile_bottom_sheet">Github profile</string>
     <string name="repository_bottom_sheet_text">Repository</string>
+    <string name="service_unavailable">No internet connection</string>
 
 </resources>

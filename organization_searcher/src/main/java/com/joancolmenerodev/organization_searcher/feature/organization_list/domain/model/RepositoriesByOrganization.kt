@@ -1,6 +1,6 @@
 package com.joancolmenerodev.organization_searcher.feature.organization_list.domain.model
 
-import com.joancolmenerodev.organization_searcher.feature.organization_list.presentation.mvp.RepositoryByOrganizationContract
+import com.joancolmenerodev.persistence.entities.Repository
 
 data class RepositoriesByOrganization(
     val id: Int,
@@ -12,3 +12,19 @@ data class RepositoriesByOrganization(
     val owner_avatar: String?,
     val owner_url: String
 )
+
+
+fun RepositoriesByOrganization.map(organization: String): Repository {
+    return Repository(
+        this.id,
+        this.name,
+        this.description,
+        this.url,
+        this.forked,
+        this.owner_name,
+        this.owner_avatar,
+        this.owner_url,
+        organization
+    )
+
+}

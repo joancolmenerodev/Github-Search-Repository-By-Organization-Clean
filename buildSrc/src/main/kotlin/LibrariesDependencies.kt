@@ -25,6 +25,10 @@ object LibrariesDependencies {
     const val GLIDE = "com.github.bumptech.glide:glide:${LibraryVersion.GLIDE_VERSION}"
     const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${LibraryVersion.GLIDE_VERSION}"
 
+    const val ROOM_RUNTIME = "androidx.room:room-runtime:${LibraryVersion.ROOM_VERSION}"
+    const val ROOM_COMPILER = "androidx.room:room-compiler:${LibraryVersion.ROOM_VERSION}"
+    const val ROOM_KTX = "androidx.room:room-ktx:${LibraryVersion.ROOM_VERSION}"
+
 }
 
 private object LibraryVersion {
@@ -35,4 +39,5 @@ private object LibraryVersion {
     const val DAGGER_ANDROID_VERSION = "2.25.2"
     const val GSON_VERSION = "2.8.5"
     const val GLIDE_VERSION = "4.9.0"
+    const val ROOM_VERSION = "2.2.5"
 }
