@@ -33,12 +33,12 @@ class RepositoryByOrganizationPresenter @Inject constructor(
                 view?.serviceUnavailable()
             }
             is RepositoriesByOrganizationExceptions.OrganizationNotFound -> {
-                view?.listNotFound()
+                view?.organizationNotFound()
             }
         }
     }
 
     private fun handleCoinList(crypto: List<RepositoriesByOrganization>) {
-        if(crypto.isEmpty()) view?.listNotFound() else view?.showResults(crypto)
+        if(crypto.isEmpty()) view?.organizationNotFound() else view?.showResults(crypto)
     }
 }

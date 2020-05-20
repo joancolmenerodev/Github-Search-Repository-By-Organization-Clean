@@ -71,7 +71,7 @@ class RepositoryByOrganizationSearcherActivity : AppCompatActivity(),
         showCorrectLayout(image_no_internet, tv_no_internet_connection)
     }
 
-    override fun listNotFound() {
+    override fun organizationNotFound() {
         showCorrectLayout(image_empty_list)
     }
 

@@ -10,7 +10,7 @@ interface RepositoryByOrganizationContract {
         fun showResults(repositories: List<RepositoriesByOrganization>)
         fun showProgressBar(isVisible: Boolean)
         fun serviceUnavailable()
-        fun listNotFound()
+        fun organizationNotFound()
     }
 
     interface Presenter : BasePresenter<View> {
