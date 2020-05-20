@@ -29,10 +29,10 @@ class RepositoryInfoBottomSheetFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var ownerWebsie: String? = ""
+        var ownerWebsite: String? = ""
         var repositoryWebsite: String? = ""
         this.arguments?.let {
-            ownerWebsie = it.getString(REPOSITORY_OWNER_URL_KEY)
+            ownerWebsite = it.getString(REPOSITORY_OWNER_URL_KEY)
             repositoryWebsite = it.getString(REPOSITORY_URL_KEY)
             tv_bottom_sheet_repo_name.text = it.getString(REPOSITORY_NAME_KEY)
             tv_bottom_sheet_owner_login.text = it.getString(REPOSITORY_OWNER_NAME_KEY)
@@ -43,7 +43,7 @@ class RepositoryInfoBottomSheetFragment : BottomSheetDialogFragment() {
 
         }
         tv_bottom_sheet_owner_profile.setOnClickListener {
-            openWebSite(ownerWebsie)
+            openWebSite(ownerWebsite)
         }
     }
 

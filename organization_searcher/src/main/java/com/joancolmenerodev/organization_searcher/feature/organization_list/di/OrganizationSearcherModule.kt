@@ -8,5 +8,5 @@ import dagger.android.ContributesAndroidInjector
 abstract class OrganizationSearcherModule {
 
     @ContributesAndroidInjector(modules = [RepositoryByOrganizationSearcherDependenciesModule::class])
-    abstract fun bindCryptoListActivity(): RepositoryByOrganizationSearcherActivity
+    abstract fun bindRepositoryByOrganizationSearcherActivity(): RepositoryByOrganizationSearcherActivity
 }

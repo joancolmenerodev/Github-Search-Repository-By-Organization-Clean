@@ -2,7 +2,6 @@ package com.joancolmenerodev.organization_searcher.feature.organization_list.pre
 
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joancolmenerodev.organization_searcher.R

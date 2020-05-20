@@ -39,6 +39,6 @@ class RepositoryByOrganizationPresenter @Inject constructor(
     }
 
     private fun handleCoinList(crypto: List<RepositoriesByOrganization>) {
-        if(crypto.isEmpty()) view?.organizationNotFound() else view?.showResults(crypto)
+        if (crypto.isEmpty()) view?.organizationNotFound() else view?.showResults(crypto)
     }
 }
