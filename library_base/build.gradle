@@ -62,4 +62,5 @@ dependencies {
     api TestLibraryDependencies.jUnit
     api TestLibraryDependencies.mockK
     api TestLibraryDependencies.testRunner
+    api TestLibraryDependencies.mockWebServer
 }
