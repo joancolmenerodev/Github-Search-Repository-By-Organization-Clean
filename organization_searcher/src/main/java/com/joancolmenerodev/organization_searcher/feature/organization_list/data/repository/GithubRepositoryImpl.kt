@@ -25,9 +25,14 @@ class GithubRepositoryImpl @Inject constructor(
         return execute {
             val organizationLowerCase = organization.toLowerCase()
             try {
-                fetchLocalData(organizationLowerCase)
-            } catch (e: NoLocalDataFound) {
                 fetchRemoteData(organizationLowerCase)
+            } catch (exception: Exception) {
+                when (exception) {
+                    is ClientException.NotFound -> throw RepositoriesByOrganizationExceptions.OrganizationNotFound
+                    else -> {
+                        fetchLocalData(organization)
+                    }
+                }
             }
         }
     }
@@ -39,26 +44,20 @@ class GithubRepositoryImpl @Inject constructor(
         return if (findRepositoryByOrganization.isNotEmpty()) {
             findRepositoryByOrganization.map { it.map() }
         } else {
-            throw NoLocalDataFound()
+            throw RepositoriesByOrganizationExceptions.ListNotAvailable
         }
     }
 
 
     private suspend fun fetchRemoteData(organization: String): List<RepositoriesByOrganization> {
-        try {
-            val result = service.getRepositoriesByOrganization(organization)
-            if (result.isNotEmpty()) {
-                insertOrganization(organization)
-            }
-            val remoteData = result.map { it.map() }
-            remoteData.forEach { insertRepositories(it.map(organization)) }
-            return remoteData
-        } catch (exception: Exception) {
-            when (exception) {
-                is ClientException.NotFound -> throw RepositoriesByOrganizationExceptions.OrganizationNotFound
-                else -> throw RepositoriesByOrganizationExceptions.ListNotAvailable
-            }
+        val result = service.getRepositoriesByOrganization(organization)
+        if (result.isNotEmpty()) {
+            insertOrganization(organization)
         }
+        val remoteData = result.map { it.map() }
+        remoteData.forEach { insertRepositories(it.map(organization)) }
+        return remoteData
+
     }
 
     private suspend fun insertOrganization(organizationName: String) = organizationDao.insert(
@@ -68,5 +67,3 @@ class GithubRepositoryImpl @Inject constructor(
     private suspend fun insertRepositories(repository: Repository) =
         repositoriesDao.insert(repository)
 }
-
-class NoLocalDataFound : Exception()
