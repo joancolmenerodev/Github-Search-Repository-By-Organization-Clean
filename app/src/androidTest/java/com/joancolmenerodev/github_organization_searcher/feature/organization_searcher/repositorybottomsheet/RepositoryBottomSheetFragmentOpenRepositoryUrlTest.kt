@@ -62,18 +62,11 @@ class RepositoryBottomSheetFragmentOpenRepositoryUrlTest :
         const val ORGANIZATION_NAME = "xing"
         const val FIRST_ITEM = 0
         private const val REPOSITORY_URL = "https://github.com/xing/gearman-ruby"
-        private const val OWNER_URL = "https://api.github.com/users/xing"
 
         private val repositoryUrlIntent = Matchers.allOf(
             IntentMatchers.hasAction(Intent.ACTION_VIEW),
             IntentMatchers.hasData(REPOSITORY_URL)
         )
-        private val ownerUrlIntent =
-            Matchers.allOf(
-                IntentMatchers.hasAction(Intent.ACTION_VIEW), IntentMatchers.hasData(
-                    OWNER_URL
-                )
-            )
     }
 
 }
