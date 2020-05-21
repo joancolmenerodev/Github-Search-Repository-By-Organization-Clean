@@ -61,7 +61,7 @@ class RepositoryBottomSheetFragmentOpenOwnerUrlTest :
     companion object {
         const val ORGANIZATION_NAME = "xing"
         const val FIRST_ITEM = 0
-        private const val OWNER_URL = "https://api.github.com/users/xing"
+        private const val OWNER_URL = "https://github.com/xing"
 
         private val ownerUrlIntent =
             Matchers.allOf(
