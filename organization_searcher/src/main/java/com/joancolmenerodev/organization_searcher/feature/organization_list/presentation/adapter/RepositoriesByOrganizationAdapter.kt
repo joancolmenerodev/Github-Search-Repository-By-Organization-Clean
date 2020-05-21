@@ -44,7 +44,7 @@ class RepositoriesByOrganizationAdapter(private val onItemClick: (repository: Re
         private val repositoryName: TextView = itemView.findViewById(R.id.tv_repoName)
         private val repositoryDescription: TextView = itemView.findViewById(R.id.tv_repoDescription)
         private val ownerName: TextView = itemView.findViewById(R.id.tv_ownerName)
-        private val cardview: CardView = itemView.findViewById(R.id.repository_card)
+        private val cardView: CardView = itemView.findViewById(R.id.repository_card)
 
         fun bind(
             repository: RepositoriesByOrganization,
@@ -53,7 +53,7 @@ class RepositoriesByOrganizationAdapter(private val onItemClick: (repository: Re
             repositoryName.text = repository.name
             repositoryDescription.text = repository.description
             ownerName.text = repository.owner_name
-            cardview.setCardBackgroundColor(
+            cardView.setCardBackgroundColor(
                 ContextCompat.getColor(
                     itemView.context,
                     getColorByForked(repository.forked)

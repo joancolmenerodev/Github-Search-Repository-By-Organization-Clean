@@ -13,7 +13,7 @@ android {
         targetSdkVersion AndroidConfig.TARGET_SDK_VERSION
         versionCode AndroidConfig.VERSION_CODE
         versionName AndroidConfig.VERSION_NAME
-        testInstrumentationRunner AndroidConfig.TEST_INSTRUMENTATION_RUNNER
+        testInstrumentationRunner "com.joancolmenerodev.github_organization_searcher.di.TestRunner"
     }
 
     buildTypes {
