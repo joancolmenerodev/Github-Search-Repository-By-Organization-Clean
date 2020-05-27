@@ -70,3 +70,9 @@ There are a few ways to open this project.
 ### Comments
 
 Feel free to create a Pull request to improve the code. Let's create a basic simple app together!
+
+### Credits
+
+1. [@Hassan Sadeghi](https://lottiefiles.com/hassansadeghi) for the [no network animation](https://lottiefiles.com/15178-women-no-internet-wifi-off-data-off#).
+2. [@shinan]() for the [404 not found animation](https://lottiefiles.com/8554-404)
+3. [Github Api](https://developer.github.com/v3/)
