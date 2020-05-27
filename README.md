@@ -50,7 +50,7 @@ There are a few ways to open this project.
 ### Android Studio
 
 1. Android Studio -> File -> New -> From Version control -> Git
-2. Enter `https://github.com/joancolmenerodev/showcase-cryptocurrency.git` into URL field
+2. Enter `https://github.com/joancolmenerodev/Github-Search-Repository-By-Organization-Clean.git` into URL field
 
 ### Command line + Android Studio
 
