@@ -1,4 +1,4 @@
-Project description
+Project description [![Build Status](https://travis-ci.org/joancolmenerodev/Github-Search-Repository-By-Organization-Clean.svg?branch=master)](https://travis-ci.org/joancolmenerodev/Github-Search-Repository-By-Organization-Clean)
 ----
 
 Github-Search-Repository-By-Organization-Clean it's a sample project to demonstrate how a clean architecure app could be.
