@@ -44,6 +44,7 @@ before_script:
   - chmod +x gradlew
   - ./gradlew --version
   - ./gradlew clean
+  - ./gradlew assembleDebug
 
 script:
   - ./gradlew test
