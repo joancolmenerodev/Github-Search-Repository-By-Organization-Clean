@@ -52,12 +52,8 @@ abstract class IntegrationTest {
     )
 
     private fun getJson(filename: String): String {
-        this.javaClass.classLoader?.let {
-            val uri = it.getResource("json/${filename}")
-            val file = File(uri.path)
-            return String(file.readBytes())
-        }
-        throw NullPointerException("ClassLoader is null")
+        val resourcesDirectory = File("src/test/resources/json/${filename}")
+        return String(resourcesDirectory.readBytes())
     }
 
     private fun generateFakeApiService() {

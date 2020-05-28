@@ -13,7 +13,7 @@ import java.net.HttpURLConnection
 class GithubServiceApiIntegrationTest : IntegrationTest() {
 
     @Test
-    fun `given that the coin list is called then it returns success`() {
+    fun `given that the repositories list is called then it returns success`() {
         // ASSIGN
         val expectedResult = repositoriesByOrganizationResponse
         mockHttpResponse("repositories_by_organization_response.json", HttpURLConnection.HTTP_OK)
@@ -28,7 +28,7 @@ class GithubServiceApiIntegrationTest : IntegrationTest() {
     }
 
     @Test(expected = ServiceException::class)
-    fun `given that the coin list return a failure then it returns failure`() {
+    fun `given that the repositories list return a failure then it returns failure`() {
         // ASSIGN
         mockHttpResponse("repositories_by_organization_response.json", HttpURLConnection.HTTP_UNAVAILABLE)
 
