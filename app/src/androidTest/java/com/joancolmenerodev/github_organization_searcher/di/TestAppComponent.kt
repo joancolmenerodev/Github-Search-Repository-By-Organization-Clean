@@ -2,7 +2,6 @@ package com.joancolmenerodev.github_organization_searcher.di
 
 import com.joancolmenerodev.github_organization_searcher.App
 import com.joancolmenerodev.github_organization_searcher.di.modules.AppFeaturesModule
-import com.joancolmenerodev.github_organization_searcher.di.modules.AppModule
 import com.joancolmenerodev.github_organization_searcher.di.modules.CoroutineDispatcherProviderModule
 import com.joancolmenerodev.networking.di.TestNetworkingModule
 import com.joancolmenerodev.persistence.di.TestPersistenceModule

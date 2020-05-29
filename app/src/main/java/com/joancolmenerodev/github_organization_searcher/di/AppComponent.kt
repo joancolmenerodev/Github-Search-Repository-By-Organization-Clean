@@ -1,8 +1,8 @@
 package com.joancolmenerodev.github_organization_searcher.di
 
+import android.app.Application
 import com.joancolmenerodev.github_organization_searcher.App
 import com.joancolmenerodev.github_organization_searcher.di.modules.AppFeaturesModule
-import com.joancolmenerodev.github_organization_searcher.di.modules.AppModule
 import com.joancolmenerodev.github_organization_searcher.di.modules.CoroutineDispatcherProviderModule
 import com.joancolmenerodev.networking.di.NetworkingModule
 import com.joancolmenerodev.persistence.di.PersistenceModule
@@ -16,7 +16,6 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        AppModule::class,
         NetworkingModule::class,
         PersistenceModule::class,
         AppFeaturesModule::class,
@@ -27,6 +26,6 @@ interface AppComponent : AndroidInjector<App> {
 
     @Component.Factory
     interface Factory {
-        fun create(@BindsInstance application: App): AppComponent
+        fun create(@BindsInstance application: Application): AppComponent
     }
 }

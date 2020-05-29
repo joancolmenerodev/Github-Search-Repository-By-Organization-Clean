@@ -7,8 +7,7 @@ import com.joancolmenerodev.organization_searcher.feature.organization_list.doma
 import com.joancolmenerodev.organization_searcher.feature.organization_list.domain.model.RepositoriesByOrganization
 import javax.inject.Inject
 
-class GetRepositoriesByOrganizationUseCase @Inject constructor(private val repository: GithubRepository) :
-    BaseUseCase() {
+class GetRepositoriesByOrganizationUseCase @Inject constructor(private val repository: GithubRepository): BaseUseCase() {
 
     suspend fun execute(organization: String): Either<RepositoriesByOrganizationExceptions, List<RepositoriesByOrganization>> =
         toEither { repository.getRepositoriesByOrganization(organization) }

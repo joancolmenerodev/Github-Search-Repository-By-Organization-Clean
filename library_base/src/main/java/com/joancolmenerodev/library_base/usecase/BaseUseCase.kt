@@ -2,7 +2,7 @@ package com.joancolmenerodev.library_base.usecase
 
 import com.joancolmenerodev.library_base.Either
 
-abstract class BaseUseCase {
+open class BaseUseCase {
 
     inline fun <reified L : Exception, R> toEither(block: () -> R): Either<L, R> {
         return try {

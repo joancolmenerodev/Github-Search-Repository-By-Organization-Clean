@@ -1,5 +1,6 @@
 package com.joancolmenerodev.persistence.di
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.joancolmenerodev.persistence.dao.OrganizationDao
@@ -14,7 +15,7 @@ object PersistenceModule {
 
     @Provides
     @Singleton
-    fun provideRoomDatabase(app: Context): Database {
+    fun provideRoomDatabase(app: Application): Database {
         return Room.databaseBuilder(
             app,
             Database::class.java,

@@ -9,8 +9,6 @@ import javax.inject.Inject
 
 open class App : Application(), HasAndroidInjector {
 
-    lateinit var application: Application
-
     @Inject
     lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
@@ -21,6 +19,5 @@ open class App : Application(), HasAndroidInjector {
         DaggerAppComponent.factory()
             .create(this)
             .inject(this)
-        this.application = this
     }
 }
