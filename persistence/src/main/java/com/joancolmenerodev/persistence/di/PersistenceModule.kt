@@ -20,16 +20,13 @@ object PersistenceModule {
             Database::class.java,
             "sample_db"
         )
-            .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
             .build()
     }
 
     @Provides
-    @Singleton
     fun provideRepositoriesDao(database: Database): RepositoriesDao = database.repositoriesDao()
 
     @Provides
-    @Singleton
     fun provideOrganizationDao(database: Database): OrganizationDao = database.organizationDao()
 }
