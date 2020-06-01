@@ -1,4 +1,4 @@
-package com.joancolmenerodev.organization_searcher.feature.organization_list.data.repository
+package com.joancolmenerodev.organization_searcher.feature.organization_list.domain
 
 import com.joancolmenerodev.organization_searcher.feature.organization_list.domain.model.RepositoriesByOrganization
 
