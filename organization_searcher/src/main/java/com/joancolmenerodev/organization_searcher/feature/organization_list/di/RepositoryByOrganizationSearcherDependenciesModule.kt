@@ -1,7 +1,7 @@
 package com.joancolmenerodev.organization_searcher.feature.organization_list.di
 
-import com.joancolmenerodev.organization_searcher.feature.organization_list.data.repository.GithubRepository
 import com.joancolmenerodev.organization_searcher.feature.organization_list.data.repository.GithubRepositoryImpl
+import com.joancolmenerodev.organization_searcher.feature.organization_list.domain.GithubRepository
 import com.joancolmenerodev.organization_searcher.feature.organization_list.presentation.mvp.RepositoryByOrganizationContract
 import com.joancolmenerodev.organization_searcher.feature.organization_list.presentation.mvp.RepositoryByOrganizationPresenter
 import dagger.Binds

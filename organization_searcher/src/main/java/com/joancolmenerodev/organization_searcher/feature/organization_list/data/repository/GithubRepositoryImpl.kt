@@ -4,6 +4,7 @@ import com.joancolmenerodev.library_base.exceptions.ClientException
 import com.joancolmenerodev.library_base.repository.BaseRepository
 import com.joancolmenerodev.organization_searcher.feature.organization_list.data.mapper.map
 import com.joancolmenerodev.organization_searcher.feature.organization_list.data.model.map
+import com.joancolmenerodev.organization_searcher.feature.organization_list.domain.GithubRepository
 import com.joancolmenerodev.organization_searcher.feature.organization_list.domain.exceptions.RepositoriesByOrganizationExceptions
 import com.joancolmenerodev.organization_searcher.feature.organization_list.domain.model.RepositoriesByOrganization
 import com.joancolmenerodev.organization_searcher.feature.organization_list.domain.model.map

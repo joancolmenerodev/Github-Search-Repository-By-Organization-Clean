@@ -23,8 +23,7 @@ class RepositoriesByOrganizationAdapter(private val onItemClick: (repository: Re
     }
 
     override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
+        parent: ViewGroup, viewType: Int
     ): RepositoriesByOrganizationHolder {
         return RepositoriesByOrganizationHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.repository_item, parent, false)
@@ -55,12 +54,10 @@ class RepositoriesByOrganizationAdapter(private val onItemClick: (repository: Re
             ownerName.text = repository.owner_name
             cardView.setCardBackgroundColor(
                 ContextCompat.getColor(
-                    itemView.context,
-                    getColorByForked(repository.forked)
+                    itemView.context, getColorByForked(repository.forked)
                 )
             )
-            itemView.setOnLongClickListener { onItemClick.invoke(repository); false }
-
+            itemView.setOnClickListener { onItemClick.invoke(repository); }
         }
     }
 

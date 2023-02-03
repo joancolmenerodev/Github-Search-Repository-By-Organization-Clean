@@ -35,13 +35,13 @@
                 tools:text="@{organizationRepositoriesViewModel.organizationInput}" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <ImageView
             android:id="@+id/btn_search_organization"
             android:layout_width="@dimen/icon_search_width"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="0.1"
-            android:background="@android:drawable/ic_menu_search" />
+            android:background="@android:drawable/ic_search_category_default" />
     </LinearLayout>
 
 

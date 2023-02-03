@@ -67,6 +67,4 @@ dependencies {
     implementation project(ModuleDependencies.NETWORKING)
     implementation project(ModuleDependencies.PERSISTENCE)
     implementation project(ModuleDependencies.ORGANIZATION_SEARCHER)
-
-    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
 }

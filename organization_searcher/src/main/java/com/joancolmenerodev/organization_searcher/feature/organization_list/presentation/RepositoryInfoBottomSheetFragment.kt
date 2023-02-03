@@ -6,23 +6,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.NonNull
-import androidx.annotation.Nullable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.joancolmenerodev.organization_searcher.R
 import com.joancolmenerodev.organization_searcher.feature.organization_list.domain.model.RepositoriesByOrganization
-import kotlinx.android.synthetic.main.repository_info_bottom_sheet.*
+import kotlinx.android.synthetic.main.repository_info_bottom_sheet.iv_bottom_sheet_owner_avatar
+import kotlinx.android.synthetic.main.repository_info_bottom_sheet.tv_bottom_sheet_owner_login
+import kotlinx.android.synthetic.main.repository_info_bottom_sheet.tv_bottom_sheet_owner_profile
+import kotlinx.android.synthetic.main.repository_info_bottom_sheet.tv_bottom_sheet_repo_name
+import kotlinx.android.synthetic.main.repository_info_bottom_sheet.tv_bottom_sheet_website_repository
 
 
 class RepositoryInfoBottomSheetFragment : BottomSheetDialogFragment() {
 
-    @Nullable
     override fun onCreateView(
-        @NonNull inflater: LayoutInflater,
-        @Nullable container: ViewGroup?,
-        @Nullable savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.repository_info_bottom_sheet, container, false)
     }
@@ -48,17 +47,14 @@ class RepositoryInfoBottomSheetFragment : BottomSheetDialogFragment() {
     }
 
     private fun openWebSite(url: String?) {
-        val browserIntent =
-            Intent(
-                Intent.ACTION_VIEW, Uri.parse(url)
-            )
+        val browserIntent = Intent(
+            Intent.ACTION_VIEW, Uri.parse(url)
+        )
         startActivity(browserIntent)
     }
 
     private fun loadImage(url: String?) {
-        Glide.with(this)
-            .load(url)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
+        Glide.with(this).load(url).diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(iv_bottom_sheet_owner_avatar)
     }
 
